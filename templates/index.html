@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My To-Do App</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            width: 400px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            padding: 10px;
+            width: 70%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #eee;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .delete-btn {
+            color: white;
+            background-color: red;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🚀 My To-Do App</h1>
+
+    <div class="container">
+
+        <form method="POST">
+            <input type="text" name="task" placeholder="Enter task">
+            <button type="submit">Add</button>
+        </form>
+
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    {{ task[1] }}
+                    <a href="/delete/{{ task[0] }}" class="delete-btn">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+</body>
+</html>
